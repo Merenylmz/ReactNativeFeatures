@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import CustomButton from "../UI/CustomButton";
 import Colors from "../../constants/colors";
 import { getCurrentPositionAsync, PermissionStatus, useForegroundPermissions } from "expo-location";
-import getMapPreview from "../../utils/location";
+import getMapPreview, { getAddress } from "../../utils/location";
 import { useIsFocused, useNavigation, useRoute } from "@react-navigation/native";
 
 const LocationPicker = ({onPickedLocation}) => {
@@ -43,9 +43,15 @@ const LocationPicker = ({onPickedLocation}) => {
     }, [isFocused, route]);
 
     useEffect(()=>{
-        console.log("Deneme");
-        
+        // const fetchAddress = async () => {
+        //     if (!pickedLocation) return;
+        //     const address = await getAddress(pickedLocation.lat, pickedLocation.lng);
+        //     const locationWithAddress = { ...pickedLocation, address };
+        //     console.log(locationWithAddress);
         onPickedLocation(pickedLocation);
+        // };
+
+        // fetchAddress();
     }, [pickedLocation, onPickedLocation]);
   return (
     <View>

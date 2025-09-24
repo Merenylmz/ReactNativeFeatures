@@ -5,11 +5,13 @@ import AddPlaces from './screens/AddPlaces';
 import IconButton from './components/UI/IconButton';
 import Colors from "./constants/colors";
 import Map from "./screens/Map";
+import { StatusBar } from 'expo-status-bar';
  
 const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
+      <StatusBar style='light' animated/>
       <Stack.Navigator screenOptions={{
         headerStyle: {backgroundColor: Colors.primary700},
         headerTintColor: Colors.gray700,

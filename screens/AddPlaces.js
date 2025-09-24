@@ -1,10 +1,14 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
 import PlaceForm from "../components/Places/PlaceForm";
 
-const AddPlaces = () => {
+const AddPlaces = ({navigation}) => {
+  const createPlaceHandler = (newPlace) =>{
+    navigation.replace("AllPlaces", {
+      place: newPlace
+    });
+
+  }
   return (
-    <PlaceForm />
+    <PlaceForm onCreatePlace={createPlaceHandler}/>
   );
 };
 
