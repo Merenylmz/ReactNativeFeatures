@@ -4,6 +4,6 @@ export class Place {
         this.imageUri = imageUri;
         this.address = location.address && location.address;
         this.location = location; // {lat: 0.54551, lng: 1.45165}
-        this.id = Date.toString() + Math.random().toString()
+        this.id = Math.random().toString()
     }
 }

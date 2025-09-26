@@ -6,9 +6,27 @@ import IconButton from './components/UI/IconButton';
 import Colors from "./constants/colors";
 import Map from "./screens/Map";
 import { StatusBar } from 'expo-status-bar';
+import { useEffect, useState } from 'react';
+import init from './utils/database';
+import AppLoading from 'expo-app-loading';
  
 const Stack = createNativeStackNavigator();
 export default function App() {
+  const [dbinitialized, setDbInitialized] = useState(false);
+
+  useEffect(()=>{
+    init().then(()=>{
+      console.log("Connected");
+      setDbInitialized(true);      
+    }).catch((err)=>{
+      setDbInitialized(false);      
+    });
+    
+  }, []);
+
+  if (!dbinitialized) {
+    return <AppLoading />
+  }
   return (
     <NavigationContainer>
       <StatusBar style='light' animated/>

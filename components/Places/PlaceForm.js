@@ -21,6 +21,9 @@ const PlaceForm = ({onCreatePlace}) => {
     const newPlace = new Place(title, image, location);
     onCreatePlace(newPlace);
   }
+  const deneme = () =>{
+    onCreatePlace({"address": undefined, "id": "0.24251829080554352", "imageUri": "file:///data/user/0/host.exp.exponent/cache/ImagePicker/c93d77a9-8212-4688-b02a-2ae7b3be5228.jpeg", "location": {"latitude": 37.77281079238239, "longitude": -122.44625866413116}, "title": "Deneme"});
+  }
   return (
     <ScrollView style={styles.form}>
       <View>
@@ -30,6 +33,7 @@ const PlaceForm = ({onCreatePlace}) => {
       <ImagePicker onTakenImage={takenImageHandler}/>
       <LocationPicker onPickedLocation={pickedLocationHandler}/>
       <PrimaryButton style={{marginTop: 20}} onPress={savePlaceHandler}>Save</PrimaryButton>
+      <PrimaryButton style={{marginTop: 20, marginBottom: 100}} onPress={deneme}>Denemeee</PrimaryButton>
     </ScrollView>
   );
 };
