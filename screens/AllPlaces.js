@@ -8,22 +8,17 @@ const AllPlaces = ({route}) => {
 
     const isFocused = useIsFocused();
     useEffect(()=>{
-        // const getData = async() =>{
-        //     await fetch();    
-        // }
-        // // const isItHave = loadedPlaces.filter()
-        // if (isFocused) {
-        //     // setLoadedPlaces((curLoadPlaces)=>{
-        //     //     return [...curLoadPlaces, route.params.place];
-        //     // });
-        //     getData();
-        //     // setLoadedPlaces();
-        // }
-        fetch().then((res)=>{
-            console.log(res);
-            // return res;
-        }).catch((err)=>{console.log(err);
-        })
+        const getData = async() =>{
+            const res = await fetch();    
+            setLoadedPlaces(res);
+        }
+        // const isItHave = loadedPlaces.filter()
+        if (isFocused) {
+            // setLoadedPlaces((curLoadPlaces)=>{
+            //     return [...curLoadPlaces, route.params.place];
+            // });
+            getData();
+        }
     }, [isFocused]);
 
     return (
